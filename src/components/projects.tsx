@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { ExternalLink, Github, Eye, Award } from 'lucide-react'
-import { Card, CardContent, CardHeader } from './ui/card'
+import { ExternalLink, Github, Eye, ArrowUpRight } from 'lucide-react'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import { ImageWithFallback } from './figma/ImageWithFallback'
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -32,183 +32,138 @@ const Projects = () => {
       description: 'A comprehensive React-based design system library that meets WCAG AA accessibility standards. Features over 50 reusable components with extensive documentation and testing.',
       image: 'https://images.unsplash.com/photo-1737918543099-dfa8ec2e3909?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ24lMjBzeXN0ZW0lMjBjb21wb25lbnRzfGVufDF8fHx8MTc1OTE1MzczN3ww&ixlib=rb-4.1.0&q=80&w=1080',
       technologies: ['React', 'TypeScript', 'Storybook', 'Material UI', 'Jest', 'WCAG'],
-      highlights: ['100% WCAG AA Compliant', '50+ Components', 'Full Test Coverage'],
-      links: {
-        github: '#',
-        demo: '#',
-        docs: '#'
-      }
+      year: '2025',
+      links: { github: '#', demo: '#', docs: '#' }
     },
     {
       title: 'API Documentation Generator',
       description: 'Custom CLI tool that generates comprehensive API documentation sites using Docusaurus and OpenAPI specifications. Used to create 40+ documentation sites.',
       image: 'https://images.unsplash.com/photo-1606623745407-fee6bc803d59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcGklMjBkb2N1bWVudGF0aW9uJTIwZGFzaGJvYXJkfGVufDF8fHx8MTc1OTI1NzMxNHww&ixlib=rb-4.1.0&q=80&w=1080',
       technologies: ['Node.js', 'Docusaurus', 'OpenAPI', 'TypeScript', 'CLI', 'Markdown'],
-      highlights: ['40+ Sites Generated', 'Automated Workflow', 'Developer-Friendly'],
-      links: {
-        github: '#',
-        docs: '#'
-      }
+      year: '2025',
+      links: { github: '#', docs: '#' }
     },
     {
-      title: 'API Traffic Analytics Dashboard',
+      title: 'API Traffic Analytics',
       description: 'Real-time dashboard for monitoring API usage patterns, performance metrics, and traffic analysis. Helps teams optimize API performance and understand usage trends.',
       image: 'https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzU5MTgyOTE5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      technologies: ['React', 'Chart.js', 'TypeScript', 'REST API', 'Real-time Data', 'Material UI'],
-      highlights: ['Real-time Analytics', 'Performance Insights', 'Interactive Charts'],
-      links: {
-        github: '#',
-        demo: '#'
-      }
+      technologies: ['React', 'Chart.js', 'TypeScript', 'REST API', 'Real-time Data'],
+      year: '2024',
+      links: { github: '#', demo: '#' }
     },
     {
       title: 'CI/CD Pipeline Suite',
       description: 'Comprehensive CI/CD pipeline implementation using GitHub Actions for automated testing, building, and deployment of frontend applications with quality gates.',
       image: 'https://images.unsplash.com/photo-1649451844931-57e22fc82de3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tYW5kJTIwbGluZSUyMGludGVyZmFjZXxlbnwxfHx8fDE3NTkyNDE1MDR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      technologies: ['GitHub Actions', 'Docker', 'Node.js', 'Jest', 'ESLint', 'Automated Testing'],
-      highlights: ['75% Faster Deployments', 'Quality Gates', 'Zero Downtime'],
-      links: {
-        github: '#',
-        docs: '#'
-      }
+      technologies: ['GitHub Actions', 'Docker', 'Node.js', 'Jest', 'ESLint'],
+      year: '2024',
+      links: { github: '#', docs: '#' }
     }
   ]
 
   return (
-    <section 
-      id="projects" 
+    <section
+      id="projects"
       ref={sectionRef}
-      className="section-padding"
+      className="py-24 border-b border-border bg-background"
     >
       <div className="section-container">
         {/* Header */}
-        <div className={`text-center space-y-4 mb-12 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my recent work, demonstrating expertise in modern frontend development, 
-            accessibility, and developer tooling.
-          </p>
+        <div className={`flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-border pb-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
+          <div className="space-y-4 max-w-2xl">
+            <h2 className="font-serif text-5xl md:text-7xl font-bold uppercase tracking-tighter">
+              Selected <span className="italic text-muted-foreground mr-2">Works</span>
+            </h2>
+            <p className="text-muted-foreground font-mono text-sm max-w-md uppercase tracking-wider">
+              [INDEX] Architecture, Accessibility, Tooling
+            </p>
+          </div>
+          <div className="mt-8 md:mt-0 font-mono text-xs uppercase text-right">
+            [04] Projects <br /> Displayed
+          </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 ${isVisible ? 'scale-in visible' : 'scale-in'}`}>
+        {/* Projects List - Editorial Style */}
+        <div className={`flex flex-col ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
           {projects.map((project, index) => (
-            <Card 
+            <div
               key={index}
-              className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group relative border-b border-border py-8 md:py-12 transition-all hover:bg-muted/50 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              onMouseEnter={() => setHoveredProject(index)}
+              onMouseLeave={() => setHoveredProject(null)}
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden">
-                <ImageWithFallback
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="flex space-x-2">
-                    {project.links.demo && (
-                      <Button size="sm" className="bg-white text-black hover:bg-white/90">
-                        <Eye className="h-4 w-4 mr-1" />
-                        Demo
-                      </Button>
-                    )}
-                    {project.links.github && (
-                      <Button size="sm" variant="outline" className="border-white text-white hover:bg-white hover:text-black">
-                        <Github className="h-4 w-4 mr-1" />
-                        Code
-                      </Button>
-                    )}
-                  </div>
+              {/* Info Column */}
+              <div className="lg:col-span-4 flex flex-col justify-between h-full space-y-4 lg:space-y-0">
+                <div className="font-mono text-sm text-muted-foreground">
+                  [{String(index + 1).padStart(2, '0')}] // {project.year}
+                </div>
+                <h3 className="font-serif text-3xl md:text-4xl leading-none mt-4 group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+              </div>
+
+              {/* Description Column */}
+              <div className="lg:col-span-4 flex flex-col justify-center space-y-6">
+                <p className="text-muted-foreground text-sm uppercase tracking-wider leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="text-xs font-mono border border-border px-2 py-1 bg-background"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              <CardHeader className="pb-4">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-xl font-semibold leading-tight">{project.title}</h3>
-                  <div className="flex space-x-2 ml-4">
-                    {project.links.github && (
-                      <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-                        <a href={project.links.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    )}
-                    {project.links.demo && (
-                      <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-                        <a href={project.links.demo} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    )}
-                    {project.links.docs && (
-                      <Button variant="ghost" size="icon" className="h-8 w-8" asChild>
-                        <a href={project.links.docs} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    )}
-                  </div>
+              {/* Action/Image Column */}
+              <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center">
+                <div className="relative w-full aspect-video overflow-hidden border border-border mb-4">
+                  <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
+                  <ImageWithFallback
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                  />
                 </div>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Highlights */}
-                <div className="flex items-center space-x-2">
-                  <Award className="h-4 w-4 text-primary flex-shrink-0" />
-                  <div className="flex flex-wrap gap-1">
-                    {project.highlights.map((highlight, hIndex) => (
-                      <Badge 
-                        key={hIndex}
-                        variant="secondary" 
-                        className="text-xs bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground"
-                      >
-                        {highlight}
-                      </Badge>
-                    ))}
-                  </div>
+                <div className="flex gap-2 w-full justify-between lg:justify-end">
+                  {project.links.demo && (
+                    <a href={project.links.demo} className="flex-1 lg:flex-none border border-border px-4 py-2 font-mono text-xs uppercase flex items-center justify-center hover:bg-foreground hover:text-background transition-colors group/link">
+                      Demo <ArrowUpRight className="ml-2 h-3 w-3 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                    </a>
+                  )}
+                  {project.links.github && (
+                    <a href={project.links.github} className="flex-1 lg:flex-none border border-border px-4 py-2 font-mono text-xs uppercase flex items-center justify-center hover:bg-foreground hover:text-background transition-colors">
+                      Repo
+                    </a>
+                  )}
+                  {project.links.docs && (
+                    <a href={project.links.docs} className="flex-1 lg:flex-none border border-border px-4 py-2 font-mono text-xs uppercase flex items-center justify-center hover:bg-foreground hover:text-background transition-colors">
+                      Docs
+                    </a>
+                  )}
                 </div>
-
-                {/* Technologies */}
-                <div className="space-y-2">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge 
-                        key={techIndex}
-                        variant="outline"
-                        className="text-xs hover:bg-accent transition-colors"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className={`text-center mt-12 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
-          <p className="text-muted-foreground mb-6">
-            Interested in seeing more of my work or collaborating on a project?
-          </p>
-          <Button 
+        <div className={`flex flex-col items-center justify-center mt-24 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
+          <div className="font-mono text-xs text-muted-foreground mb-4">[INTERESTED IN COLLABORATION?]</div>
+          <Button
             size="lg"
+            variant="outline"
+            className="rounded-none border-border font-mono uppercase tracking-widest h-16 px-12 hover:bg-foreground hover:text-background transition-colors border max-w-sm w-full"
             onClick={() => {
               const element = document.getElementById('contact')
               if (element) element.scrollIntoView({ behavior: 'smooth' })
             }}
           >
-            Get In Touch
+            Initiate Contact
           </Button>
         </div>
       </div>
