@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,7 +52,7 @@ const About = () => {
           <div className="lg:col-span-7 flex flex-col space-y-12">
             <div className={`font-mono text-base lg:text-lg leading-relaxed space-y-6 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
               <p>
-                Currently operating at <span className="font-bold underline decoration-2 underline-offset-4">Tietoevry Banking</span>, specializing in WCAG-compliant component libraries, CI/CD pipeline automation, and establishing robust design-to-engineering handoffs.
+                Currently operating at <a href="https://www.tieto.com/" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-4">Tieto Banktech</a>, specializing in WCAG-compliant component libraries, CI/CD pipeline automation, and establishing robust design-to-engineering handoffs.
               </p>
               <p className="text-muted-foreground">
                 I thrive in the intersection of strict technical requirements and immaculate user interfaces. With half a decade of navigating the strict constraints of the financial sector, my process is extremely disciplined, yet deeply creative. I leverage modern AI tools to accelerate delivery without sacrificing an ounce of architectural integrity.
