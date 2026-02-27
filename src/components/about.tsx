@@ -1,6 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Award, Users, Sparkles, Lightbulb } from "lucide-react";
-import { Card, CardContent } from "./ui/card";
+import { useEffect, useRef, useState } from "react";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,129 +7,82 @@ const About = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   const highlights = [
     {
-      icon: Award,
-      title: "WCAG Compliance",
-      description:
-        "Expert in building accessible web applications that meet WCAG AA standards",
+      title: "Accessibility (WCAG)",
+      description: "Building inclusive web experiences that strictly meet WCAG AA and AAA standards — because the web is for everyone."
     },
     {
-      icon: Users,
-      title: "Team Collaboration",
-      description:
-        "Experience working with cross-functional teams and mentoring junior developers",
+      title: "Bridging Design & Dev", // Changed from "Team Collaboration" to be more specific
+      description: "Working closely with designers and product managers to turn complex financial requirements into seamless user experiences."
     },
     {
-      icon: Sparkles,
-      title: "AI-Driven Development",
-      description:
-        "Leveraging AI tools like Cursor, Claude Code, and GitHub Copilot to accelerate development and improve code quality",
+      title: "AI-Driven Workflows",
+      description: "Using tools like GitHub Copilot and Claude to eliminate the busywork, leaving me more time to focus on the actual craft."
     },
     {
-      icon: Lightbulb,
-      title: "Innovation",
-      description:
-        "Passionate about exploring new technologies and best practices in frontend development",
+      title: "Scalable Architecture",
+      description: "Laying down solid foundations for component libraries and apps so that other developers actually enjoy working in the codebase."
     },
   ];
 
   return (
-    <section
-      id="about"
-      ref={sectionRef}
-      className="section-padding bg-muted/30"
-    >
-      <div className="section-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Content */}
-          <div
-            className={`space-y-6 ${isVisible ? "fade-in visible" : "fade-in"}`}
-          >
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                About <span className="gradient-text">Me</span>
+    <section id="about" ref={sectionRef} className="py-24 border-b border-border bg-muted/20 relative overflow-hidden">
+      <div className="absolute right-0 top-0 text-[30vw] font-serif leading-none tracking-tighter opacity-[0.02] dark:opacity-[0.03] select-none pointer-events-none">
+        01
+      </div>
+
+      <div className="section-container relative z-10 w-full">
+        <div className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start ${isVisible ? 'slide-in-right visible' : 'slide-in-right'}`}>
+          <div className="lg:col-span-5 h-full flex flex-col justify-between">
+            <div>
+              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-8">
+                [01. PROFILE SUMMARY]
+              </div>
+              <h2 className="font-serif text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-none mb-12">
+                Origin / <br /><span className="italic text-muted-foreground">About</span>
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
             </div>
 
-            <div className="space-y-4 text-foreground">
-              <p>
-                Currently working at{" "}
-                <span className="text-foreground font-medium">
-                  Tietoevry Banking
-                </span>
-                , I specialize in WCAG-compliant component libraries, implementing CI/CD pipelines, and leveraging AI tools to accelerate delivery and improve developer experience. I'm
-                particularly passionate about building tools that help other
-                developers work more efficiently.
-              </p>
-
-              <p>
-                With a strong foundation in modern frontend technologies and a
-                keen eye for detail, I strive to deliver high-quality solutions
-                that meet both business requirements and user needs. I believe
-                in writing clean, maintainable code and fostering collaborative
-                development environments.
-              </p>
-            </div>
-
-            <div className="pt-4">
-              <h3 className="text-xl font-semibold mb-4">
-                Years of Experience
-              </h3>
-              <div className="flex items-center space-x-4">
-                <div className="text-4xl font-bold gradient-text">5+</div>
-                <div className="text-muted-foreground">
-                  Years of professional frontend development experience
-                </div>
+            <div className="hidden lg:block pb-12">
+              <div className="font-mono text-4xl mb-2">5.0+</div>
+              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                Years in continuous operation
               </div>
             </div>
           </div>
 
-          {/* Highlights */}
-          <div
-            className={`space-y-6 ${isVisible ? "slide-in-right visible" : "slide-in-right"
-              }`}
-          >
-            <h3 className="text-2xl font-semibold">What I Bring</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {highlights.map((highlight, index) => {
-                const Icon = highlight.icon;
-                return (
-                  <Card
-                    key={index}
-                    className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                  >
-                    <CardContent className="p-6 space-y-4">
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <Icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-muted-foreground">
-                          {highlight.title}
-                        </h4>
-                        <p className="text-sm text-foreground mt-1">
-                          {highlight.description}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+          <div className="lg:col-span-7 flex flex-col space-y-12">
+            <div className={`font-mono text-base lg:text-lg leading-relaxed space-y-6 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
+              <p>
+                Currently I'm working at <a href="https://www.tieto.com/" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-4">Tieto Banktech</a>, where I focus on making the web accessible and our workflows seamless. I build out our WCAG-compliant component libraries, manage our CI/CD pipelines, and automate the heavy lifting of design system documentation."
+              </p>
+              <p className="text-muted-foreground">
+                I love the challenge of taking complicated technical rules and turning them into clean, friendly interfaces. Spending five years in the financial sector taught me how to write highly disciplined code without losing my creative spark. These days, I use AI to help speed up the busywork, which lets me ship faster without ever cutting corners on the quality of the code.
+              </p>
+            </div>
+
+            <div className={`pt-12 border-t border-border ${isVisible ? 'slide-in-left visible' : 'slide-in-left'}`}>
+              <div className="font-mono text-xs uppercase tracking-widest mb-8">
+                [CORE VALUE PROPOSITIONS]
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border border border-border">
+                {highlights.map((item, idx) => (
+                  <div key={idx} className="bg-background p-8 hover:bg-muted transition-colors">
+                    <h4 className="font-serif text-xl mb-4 font-bold uppercase">{item.title}</h4>
+                    <p className="font-mono text-xs leading-relaxed text-muted-foreground uppercase">{item.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { ThemeProvider } from './components/theme-provider'
 import { Toaster } from "./components/ui/sonner"
 import Header from './components/header'
@@ -9,11 +9,12 @@ import Experience from './components/experience'
 import Projects from './components/projects'
 import Contact from './components/contact'
 import Footer from './components/footer'
+import { AnimatedBackground } from './components/animated-background'
 
 // Animation utility function
 const observeElements = () => {
   const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in')
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -44,10 +45,12 @@ export default function App() {
 
   return (
     <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
-      <div className="min-h-screen bg-background font-sans antialiased">
+      <div className="min-h-screen bg-transparent font-sans antialiased relative z-0">
+        <AnimatedBackground />
+
         {/* Header */}
         <Header />
-        
+
         {/* Main Content */}
         <main>
           <Hero />
@@ -57,10 +60,10 @@ export default function App() {
           <Projects />
           <Contact />
         </main>
-        
+
         {/* Footer */}
         <Footer />
-        
+
         {/* Toast notifications */}
         <Toaster />
       </div>

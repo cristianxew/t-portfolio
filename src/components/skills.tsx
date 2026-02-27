@@ -1,7 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Code, Palette, Settings, Bot } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import { Badge } from './ui/badge'
+import { useEffect, useRef, useState } from 'react'
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -16,132 +13,113 @@ const Skills = () => {
       },
       { threshold: 0.1 }
     )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
 
   const skillCategories = [
     {
-      icon: Code,
-      title: 'Programming Languages',
-      color: 'bg-blue-500/10 text-blue-600',
+      id: "01",
+      title: 'Languages',
       skills: ['TypeScript', 'JavaScript', 'Node.js', 'HTML5', 'CSS3', 'SASS']
     },
     {
-      icon: Palette,
-      title: 'Frameworks & Libraries',
-      color: 'bg-green-500/10 text-green-600',
+      id: "02",
+      title: 'Frameworks',
       skills: ['React', 'Angular', 'Next.js', 'Material UI', 'Tailwind CSS', 'Storybook', 'Chart.js']
     },
     {
-      icon: Settings,
-      title: 'Tools & Technologies',
-      color: 'bg-purple-500/10 text-purple-600',
-      skills: ['Git', 'GitHub Actions', 'Vite', 'Docusaurus', 'RESTful APIs', 'GraphQL', 'CI/CD Pipelines']
+      id: "03",
+      title: 'Ecosystem',
+      skills: ['Git', 'GitHub Actions', 'Docker', 'Vite', 'vitest', 'cypress', 'Docusaurus', 'GraphQL']
     },
     {
-      icon: Bot,
-      title: 'AI Tools',
-      color: 'bg-orange-500/10 text-orange-600',
-      skills: ['Cursor', 'Claude Code', 'GitHub Copilot', 'Microsoft Copilot Studio']
+      id: "04",
+      title: 'AI Tooling',
+      skills: ['Claude Code', 'GitHub Copilot', 'Antigravity', 'Cursor', 'Microsoft Copilot Studio']
     }
   ]
 
   const expertiseAreas = [
-    'WCAG Accessibility Standards',
+    'WCAG Accessibility (AA/AAA)',
     'Responsive Web Design (RWD)',
-    'Component Library Development',
+    'Enterprise Component Libraries',
+    'Unit Testing / Integration Testing',
     'API Documentation',
-    'Unit Testing',
-    'Performance Optimization'
+    'Performance Optimization',
+    'CI/CD',
+    'Pixel Perfect UI',
+    'RESTful APIs',
   ]
 
   return (
-    <section
-      id="skills"
-      ref={sectionRef}
-      className="section-padding"
-    >
-      <div className="section-container">
-        {/* Header */}
-        <div className={`text-center space-y-4 mb-12 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Skills & <span className="gradient-text">Expertise</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto"></div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills and areas of expertise in frontend development.
-          </p>
+    <section id="skills" ref={sectionRef} className="py-24 border-b border-border">
+      <div className="section-container relative">
+        <div className={`flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-border pb-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
+          <div className="space-y-4 max-w-2xl">
+            <h2 className="font-serif text-5xl md:text-7xl font-bold uppercase tracking-tighter">
+              Skills / <span className="italic text-muted-foreground mr-2">Core</span>
+            </h2>
+            <p className="text-muted-foreground font-mono text-sm max-w-md uppercase tracking-wider">
+              [CAPABILITIES] Frameworks, Languages, Operations
+            </p>
+          </div>
+          <div className="mt-8 md:mt-0 font-mono text-xs uppercase text-right">
+            [SYS.DATA] Technical <br /> Specifications
+          </div>
         </div>
 
-        {/* Skills Grid */}
-        <div className={`tech-grid mb-12 ${isVisible ? 'scale-in visible' : 'scale-in'}`}>
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon
-            return (
-              <Card
-                key={index}
-                className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader className="pb-4">
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-10 h-10 rounded-lg ${category.color} flex items-center justify-center`}>
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <CardTitle className="text-lg">{category.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, skillIndex) => (
-                      <Badge
-                        key={skillIndex}
-                        variant="secondary"
-                        className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            )
-          })}
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-l border-t border-border ${isVisible ? 'scale-in visible' : 'scale-in'}`}>
+          {skillCategories.map((category) => (
+            <div key={category.id} className="border-r border-b border-border p-8 hover:bg-muted/30 transition-colors group">
+              <div className="font-mono text-xs text-muted-foreground mb-12">
+                [{category.id}]
+              </div>
+              <h3 className="font-serif text-2xl mb-8 group-hover:text-primary transition-colors">
+                {category.title}
+              </h3>
+              <ul className="space-y-3">
+                {category.skills.map((skill, skillIndex) => (
+                  <li key={skillIndex} className="font-mono text-sm border-b border-border/50 pb-2 last:border-0 hover:pl-2 transition-all cursor-default">
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Expertise Areas */}
-        <div className={`${isVisible ? 'fade-in visible' : 'fade-in'}`}>
-          <h3 className="text-2xl font-semibold text-center mb-8">Areas of Expertise</h3>
-          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-            {expertiseAreas.map((area, index) => (
-              <Badge
-                key={index}
-                variant="outline"
-                className="px-4 py-2 text-sm hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 cursor-default"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+        <div className={`mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start ${isVisible ? 'slide-in-left visible' : 'slide-in-left'}`}>
+          <div className="lg:col-span-4 max-w-sm">
+            <h3 className="font-serif text-3xl mb-4 uppercase">Expertise</h3>
+            <p className="text-muted-foreground text-sm uppercase font-mono tracking-widest leading-relaxed mb-8">
+              Specialized domains of knowledge gathered over half a decade in fintech frontend engineering.
+            </p>
+          </div>
+
+          <div className="lg:col-span-8 flex flex-wrap gap-2">
+            {expertiseAreas.map((area, idx) => (
+              <span key={idx} className="font-mono text-xs uppercase tracking-wider px-4 py-3 border border-border hover:bg-foreground hover:text-background transition-colors cursor-default">
                 {area}
-              </Badge>
+              </span>
             ))}
           </div>
         </div>
 
-        {/* Fun Stats */}
-        <div className={`mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 ${isVisible ? 'slide-in-left visible' : 'slide-in-left'}`}>
+        <div className={`mt-24 grid grid-cols-2 md:grid-cols-4 border-t border-l border-border ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
           {[
-            { number: '40+', label: 'API Documentation Sites' },
-            { number: '100%', label: 'WCAG AA Compliance' },
-            { number: '5+', label: 'Years Experience' },
-            { number: '∞', label: 'Lines of Code' }
-          ].map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-2xl md:text-3xl font-bold gradient-text">{stat.number}</div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+            { num: '40+', label: 'Projects' },
+            { num: 'AA', label: 'WCAG Compliance' },
+            { num: '5+', label: 'Years Experience' },
+            { num: '∞', label: 'Lines of Code' }
+          ].map((stat, idx) => (
+            <div key={idx} className="border-r border-b border-border p-6 md:p-10 flex flex-col justify-center items-center group hover:bg-muted/30 transition-colors text-center aspect-square">
+              <div className="font-serif text-4xl md:text-6xl mb-4 group-hover:scale-110 transition-transform">
+                {stat.num}
+              </div>
+              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>
