@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { toast } from "sonner"
+import { useForm, ValidationError } from '@formspree/react'
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const sectionRef = useRef<HTMLElement>(null)
+  const [state, handleSubmit] = useForm("mrgozgva")
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,26 +20,15 @@ const Contact = () => {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    if (state.succeeded) {
+      toast.success('TRANSMISSION SUCCESSFUL. I WILL RESPOND AS SOON AS POSSIBLE.')
+      setFormData({ name: '', email: '', message: '' })
+    }
+  }, [state.succeeded])
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!formData.name || !formData.email || !formData.message) {
-      toast.error('INCOMPLETE DATA.')
-      return
-    }
-    setIsSubmitting(true)
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      toast.success('TRANSMISSION SUCCESSFUL.')
-      setFormData({ name: '', email: '', message: '' })
-    } catch {
-      toast.error('TRANSMISSION FAILED.')
-    } finally {
-      setIsSubmitting(false)
-    }
   }
 
   return (
@@ -103,6 +93,7 @@ const Contact = () => {
                   required
                   className="w-full bg-transparent border-b border-border py-4 font-mono text-sm uppercase focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/30"
                 />
+                <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 font-mono text-xs" />
               </div>
 
               <div className="space-y-2">
@@ -119,6 +110,7 @@ const Contact = () => {
                   required
                   className="w-full bg-transparent border-b border-border py-4 font-mono text-sm uppercase focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/30"
                 />
+                <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 font-mono text-xs" />
               </div>
 
               <div className="space-y-2">
@@ -135,14 +127,15 @@ const Contact = () => {
                   required
                   className="w-full bg-transparent border-b border-border py-4 font-mono text-sm uppercase resize-none focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground/30"
                 />
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 font-mono text-xs" />
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={state.submitting}
                 className="w-full bg-foreground text-background font-mono text-xs uppercase tracking-widest py-6 hover:bg-primary transition-colors flex items-center justify-center gap-4 group"
               >
-                {isSubmitting ? '[TRANSMITTING...]' : (
+                {state.submitting ? '[TRANSMITTING...]' : (
                   <>
                     [TRANSMIT]
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
