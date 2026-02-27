@@ -17,10 +17,22 @@ const About = () => {
   }, []);
 
   const highlights = [
-    { title: "Accessibility (WCAG)", description: "Building highly accessible web experiences conforming to AA standards." },
-    { title: "Team Leadership", description: "Mentoring engineers, setting technical directions, and code reviewing." },
-    { title: "AI-Driven Workflows", description: "Accelerating output using AI tooling like GitHub Copilot and Claude." },
-    { title: "Architecture", description: "Designing highly scalable component libraries and complex applications." },
+    {
+      title: "Accessibility (WCAG)",
+      description: "Building inclusive web experiences that strictly meet WCAG AA and AAA standards — because the web is for everyone."
+    },
+    {
+      title: "Bridging Design & Dev", // Changed from "Team Collaboration" to be more specific
+      description: "Working closely with designers and product managers to turn complex financial requirements into seamless user experiences."
+    },
+    {
+      title: "AI-Driven Workflows",
+      description: "Using tools like GitHub Copilot and Claude to eliminate the busywork, leaving me more time to focus on the actual craft."
+    },
+    {
+      title: "Scalable Architecture",
+      description: "Laying down solid foundations for component libraries and apps so that other developers actually enjoy working in the codebase."
+    },
   ];
 
   return (
@@ -52,10 +64,10 @@ const About = () => {
           <div className="lg:col-span-7 flex flex-col space-y-12">
             <div className={`font-mono text-base lg:text-lg leading-relaxed space-y-6 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
               <p>
-                Currently operating at <a href="https://www.tieto.com/" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-4">Tieto Banktech</a>, specializing in WCAG-compliant component libraries, CI/CD pipeline automation, and establishing robust design-to-engineering handoffs.
+                Currently I'm working at <a href="https://www.tieto.com/" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-4">Tieto Banktech</a>, where I focus on making the web accessible and our workflows seamless. I build out our WCAG-compliant component libraries, manage our CI/CD pipelines, and automate the heavy lifting of design system documentation."
               </p>
               <p className="text-muted-foreground">
-                I thrive in the intersection of strict technical requirements and immaculate user interfaces. With half a decade of navigating the strict constraints of the financial sector, my process is extremely disciplined, yet deeply creative. I leverage modern AI tools to accelerate delivery without sacrificing an ounce of architectural integrity.
+                I love the challenge of taking complicated technical rules and turning them into clean, friendly interfaces. Spending five years in the financial sector taught me how to write highly disciplined code without losing my creative spark. These days, I use AI to help speed up the busywork, which lets me ship faster without ever cutting corners on the quality of the code.
               </p>
             </div>
 

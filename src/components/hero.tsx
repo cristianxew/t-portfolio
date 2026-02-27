@@ -1,14 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Github, Linkedin, Mail, ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
+import { socialLinks } from "../data/socials";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import cristian_bernal_img from "../assets/images/cristian_bernal.png";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [time, setTime] = useState("");
 
   useEffect(() => {
     setIsVisible(true);
+
+    const updateTime = () => {
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Europe/Warsaw',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      });
+      setTime(`WAW // ${formatter.format(new Date())}`);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -18,16 +35,12 @@ const Hero = () => {
     }
   };
 
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/cristianbernal", label: "GH" },
-    { icon: Linkedin, href: "https://linkedin.com/in/cristian-bernal", label: "LN" },
-    { icon: Mail, href: "mailto:cristianxsa15@gmail.com", label: "EM" },
-  ];
+
 
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] flex flex-col justify-end pt-24 pb-12 border-b-2 border-border overflow-hidden bg-background"
+      className="relative min-h-[100svh] flex flex-col justify-end pt-24 pb-12 border-b-2 border-border overflow-hidden"
     >
       {/* Decorative Blueprint Background grid */}
       <div
@@ -46,10 +59,9 @@ const Hero = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse border border-background"></span>
             <span>Available for new opportunities</span>
           </div>
-          <div className="hidden md:flex gap-8">
-            <span>Lat: 59.3293° N</span>
-            <span>Lon: 18.0686° E</span>
-            <span>SYS.VER: 2026.1.0</span>
+          <div className="hidden md:flex gap-8 items-center">
+            <span>Based in Warsaw</span>
+            <span>{time}</span>
           </div>
         </div>
 
@@ -60,12 +72,14 @@ const Hero = () => {
               Senior <br />
               <span className="italic text-muted-foreground mr-6">Frontend</span>
               <br />
-              Engineer<span className="text-primary text-[0.5em] alignment-baseline-top">.</span>
+              Engineer<span className="text-primary ml-3 text-[0.5em] alignment-baseline-top">.</span>
             </h1>
 
             <div className="flex flex-col sm:flex-row gap-6 mt-8 max-w-2xl">
               <p className="text-base md:text-lg font-mono text-muted-foreground leading-relaxed flex-1">
-                [01] Specialized in highly scalable architectures, WCAG compliance, and pixel-perfect UIs. Crafting digital experiences that load fast and look immaculate.
+                [01] Self-taught and driven by curiosity, I bridge
+                the gap between design and engineering to deliver
+                production-grade solutions.
               </p>
             </div>
           </div>
@@ -114,17 +128,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Scroll indicator overlay */}
-      <div className="absolute bottom-0 right-12 lg:right-24 transform translate-y-1/2 hidden md:block z-20">
-        <button
-          onClick={() => scrollToSection("about")}
-          className="h-24 w-24 bg-background border border-border rounded-full flex items-center justify-center hover:bg-foreground hover:text-background transition-colors group shadow-lg"
-          aria-label="Scroll to about section"
-        >
-          <ArrowDown className="h-6 w-6 transform group-hover:translate-y-2 transition-transform" />
-        </button>
       </div>
     </section>
   );

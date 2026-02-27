@@ -31,12 +31,12 @@ const Skills = () => {
     {
       id: "03",
       title: 'Ecosystem',
-      skills: ['Git', 'GitHub Actions', 'Vite', 'Docusaurus', 'RESTful APIs', 'GraphQL', 'CI/CD']
+      skills: ['Git', 'GitHub Actions', 'Docker', 'Vite', 'vitest', 'cypress', 'Docusaurus', 'GraphQL']
     },
     {
       id: "04",
       title: 'AI Tooling',
-      skills: ['Cursor', 'Claude Code', 'GitHub Copilot', 'Microsoft Copilot Studio']
+      skills: ['Claude Code', 'GitHub Copilot', 'Antigravity', 'Cursor', 'Microsoft Copilot Studio']
     }
   ]
 
@@ -44,13 +44,16 @@ const Skills = () => {
     'WCAG Accessibility (AA/AAA)',
     'Responsive Web Design (RWD)',
     'Enterprise Component Libraries',
-    'Automated Testing Ecosystems',
-    'Advanced API Workflows',
-    'Performance Optimization'
+    'Unit Testing / Integration Testing',
+    'API Documentation',
+    'Performance Optimization',
+    'CI/CD',
+    'Pixel Perfect UI',
+    'RESTful APIs',
   ]
 
   return (
-    <section id="skills" ref={sectionRef} className="py-24 border-b border-border bg-background">
+    <section id="skills" ref={sectionRef} className="py-24 border-b border-border">
       <div className="section-container relative">
         <div className={`flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-border pb-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
           <div className="space-y-4 max-w-2xl">
@@ -105,16 +108,16 @@ const Skills = () => {
 
         <div className={`mt-24 grid grid-cols-2 md:grid-cols-4 border-t border-l border-border ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
           {[
-            { num: '40+', label: 'Documentation Sites' },
+            { num: '40+', label: 'Projects' },
             { num: 'AA', label: 'WCAG Compliance' },
-            { num: '05+', label: 'Years Experience' },
+            { num: '5+', label: 'Years Experience' },
             { num: '∞', label: 'Lines of Code' }
           ].map((stat, idx) => (
-            <div key={idx} className="border-r border-b border-border p-6 md:p-10 flex flex-col justify-center items-center group hover:bg-foreground hover:text-background transition-colors text-center aspect-square">
+            <div key={idx} className="border-r border-b border-border p-6 md:p-10 flex flex-col justify-center items-center group hover:bg-muted/30 transition-colors text-center aspect-square">
               <div className="font-serif text-4xl md:text-6xl mb-4 group-hover:scale-110 transition-transform">
                 {stat.num}
               </div>
-              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground group-hover:text-background/80">
+              <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
                 {stat.label}
               </div>
             </div>

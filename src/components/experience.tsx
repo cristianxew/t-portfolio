@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 const Experience = () => {
@@ -20,18 +20,19 @@ const Experience = () => {
   const experiences = [
     {
       id: "01",
-      company: "Tietoevry Banking",
+      company: "Tieto Banktech",
       position: "Software Engineer",
       period: "2021—PRESENT",
       location: "Warsaw, PL",
       description: "Leading frontend development initiatives with focus on accessibility and developer experience.",
       achievements: [
-        "Architected scalable monorepos for UI component libraries via npm, driving design parity across teams.",
-        "Ensured 100% WCAG 2.1 Level AA compliance across all UI components.",
-        "Created an AI-powered Chat Assistant trained on design system docs to accelerate onboarding.",
-        "Developed custom CLI tool automating generation of 40+ Open API specification websites.",
+        "Architected and maintained a scalable monorepo for UI component libraries via npm, increasing development velocity and ensuring design parity across multiple product teams",
+        "Ensured 100% WCAG 2.1 Level AA compliance across all UI components, mitigating legal risk and improving UX for all users",
+        "Automated API documentation generation for UI components, reducing manual overhead and ensuring technical specs remained in sync with code changes",
+        "Established CI/CD pipelines for asset publication, ensuring a seamless release cycle for internal consumers",
+        "Developed an API traffic analysis dashboard using the internal design system, demonstrating the library's capability for complex, data-heavy applications",
       ],
-      technologies: ["React", "TypeScript", "Material UI", "GitHub Actions", "Copilot Studio"],
+      technologies: ["React", "TypeScript", "Storybook", "Angular", "Docusaurus", "GitHub Actions", "Copilot Studio"],
     },
     {
       id: "02",
@@ -49,7 +50,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" ref={sectionRef} className="py-24 border-b border-border bg-background">
+    <section id="experience" ref={sectionRef} className="py-24 border-b border-border">
       <div className="section-container relative">
         <div className={`flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-border pb-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
           <div className="space-y-4 max-w-2xl">
@@ -69,7 +70,7 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className={`group grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-border py-12 lg:py-16 hover:bg-muted/30 transition-colors ${isVisible ? 'slide-in-left visible' : 'slide-in-left'}`}
+              className={`group grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-border py-12 lg:py-16 transition-colors ${isVisible ? 'slide-in-left visible' : 'slide-in-left'}`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               {/* Meta data */}

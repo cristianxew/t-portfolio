@@ -1,12 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { ExternalLink, Github, Eye, ArrowUpRight } from 'lucide-react'
-import { Badge } from './ui/badge'
+import { useEffect, useRef, useState } from 'react'
+import { ArrowUpRight } from 'lucide-react'
 import { Button } from './ui/button'
 import { ImageWithFallback } from './figma/ImageWithFallback'
+import dietai from '../assets/images/dietai.png'
+import opunet from '../assets/images/opunet.png'
+import chatdecks from '../assets/images/chatdecks.png'
+import zdra from '../assets/images/zdra.png'
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -28,44 +30,44 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'WCAG Design System Library',
-      description: 'A comprehensive React-based design system library that meets WCAG AA accessibility standards. Features over 50 reusable components with extensive documentation and testing.',
-      image: 'https://images.unsplash.com/photo-1737918543099-dfa8ec2e3909?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ24lMjBzeXN0ZW0lMjBjb21wb25lbnRzfGVufDF8fHx8MTc1OTE1MzczN3ww&ixlib=rb-4.1.0&q=80&w=1080',
-      technologies: ['React', 'TypeScript', 'Storybook', 'Material UI', 'Jest', 'WCAG'],
-      year: '2025',
-      links: { github: '#', demo: '#', docs: '#' }
+      title: 'DIETAI',
+      description: 'A SaaS platform I founded and built from scratch. I wanted to see how far I could push AI to solve a daily chore, so I created a tool that completely automates meal planning—from analyzing nutrition to actually handling the grocery shopping.',
+      image: dietai,
+      technologies: ['TypeScript', 'Next.js', 'Tailwind CSS', 'Supabase', 'Stripe', 'Shadcn UI', 'Edamam API', 'Browser-use API'],
+      year: '2025 - Present',
+      links: { github: 'https://github.com/cristianxew/dietaibest', demo: 'https://dietaimanager.com/' }
     },
     {
-      title: 'API Documentation Generator',
-      description: 'Custom CLI tool that generates comprehensive API documentation sites using Docusaurus and OpenAPI specifications. Used to create 40+ documentation sites.',
-      image: 'https://images.unsplash.com/photo-1606623745407-fee6bc803d59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcGklMjBkb2N1bWVudGF0aW9uJTIwZGFzaGJvYXJkfGVufDF8fHx8MTc1OTI1NzMxNHww&ixlib=rb-4.1.0&q=80&w=1080',
-      technologies: ['Node.js', 'Docusaurus', 'OpenAPI', 'TypeScript', 'CLI', 'Markdown'],
-      year: '2025',
-      links: { github: '#', docs: '#' }
+      title: 'CHATDECKS',
+      description: 'A fast, friendly landing page for an ed-tech platform. The goal was to build a seamless experience that helps teachers easily create digital activity cards for their students without fighting the software.',
+      image: chatdecks,
+      technologies: ['Gatsby', 'Sass', 'Wordpress CMS', 'GraphQL'],
+      year: '2021',
+      links: { github: 'https://gitlab.com/cristian_bernal/project-cd', demo: 'https://unruffled-shaw-808342.netlify.app/' }
     },
     {
-      title: 'API Traffic Analytics',
-      description: 'Real-time dashboard for monitoring API usage patterns, performance metrics, and traffic analysis. Helps teams optimize API performance and understand usage trends.',
-      image: 'https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXx8fHwxNzU5MTgyOTE5fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      technologies: ['React', 'Chart.js', 'TypeScript', 'REST API', 'Real-time Data'],
-      year: '2024',
-      links: { github: '#', demo: '#' }
+      title: 'OPUNET',
+      description: 'A corporate site for a digital agency where frontend performance meets easy content management. I paired a fast Next.js UI with a headless Strapi backend so the client could update their site effortlessly.',
+      image: opunet,
+      technologies: ['Next.js', 'Sass', 'Strapi', 'REST API', 'GSAP'],
+      year: '2020',
+      links: { github: 'https://gitlab.com/cristian_bernal/opunet/-/tree/main', demo: 'https://opunet.vercel.app/' }
     },
     {
-      title: 'CI/CD Pipeline Suite',
-      description: 'Comprehensive CI/CD pipeline implementation using GitHub Actions for automated testing, building, and deployment of frontend applications with quality gates.',
-      image: 'https://images.unsplash.com/photo-1649451844931-57e22fc82de3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tYW5kJTIwbGluZSUyMGludGVyZmFjZXxlbnwxfHx8fDE3NTkyNDE1MDR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      technologies: ['GitHub Actions', 'Docker', 'Node.js', 'Jest', 'ESLint'],
-      year: '2024',
-      links: { github: '#', docs: '#' }
-    }
-  ]
+      title: 'ZDRA',
+      description: 'An interactive landing page built to grab attention. I focused on using GSAP to build complex, engaging scroll animations that feel incredibly smooth.',
+      image: zdra,
+      technologies: ['Gatsby', 'Sass', 'GSAP'],
+      year: '2020',
+      links: { github: 'https://github.com/cristianxew/drawing-line-on-scroll', demo: 'https://pensive-bhaskara-e3a9d4.netlify.app/' }
+    },
+  ];
 
   return (
     <section
       id="projects"
       ref={sectionRef}
-      className="py-24 border-b border-border bg-background"
+      className="py-24 border-b border-border"
     >
       <div className="section-container">
         {/* Header */}
@@ -75,7 +77,7 @@ const Projects = () => {
               Selected <span className="italic text-muted-foreground mr-2">Works</span>
             </h2>
             <p className="text-muted-foreground font-mono text-sm max-w-md uppercase tracking-wider">
-              [INDEX] Architecture, Accessibility, Tooling
+              [INDEX]
             </p>
           </div>
           <div className="mt-8 md:mt-0 font-mono text-xs uppercase text-right">
@@ -88,9 +90,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative border-b border-border py-8 md:py-12 transition-all hover:bg-muted/50 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-              onMouseEnter={() => setHoveredProject(index)}
-              onMouseLeave={() => setHoveredProject(null)}
+              className="group relative border-b border-border py-8 md:py-12 transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
             >
               {/* Info Column */}
               <div className="lg:col-span-4 flex flex-col justify-between h-full space-y-4 lg:space-y-0">
@@ -104,7 +104,7 @@ const Projects = () => {
 
               {/* Description Column */}
               <div className="lg:col-span-4 flex flex-col justify-center space-y-6">
-                <p className="text-muted-foreground text-sm uppercase tracking-wider leading-relaxed">
+                <p className="text-muted-foreground text-sm  tracking-wider leading-relaxed">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -126,23 +126,18 @@ const Projects = () => {
                   <ImageWithFallback
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
                   />
                 </div>
                 <div className="flex gap-2 w-full justify-between lg:justify-end">
                   {project.links.demo && (
-                    <a href={project.links.demo} className="flex-1 lg:flex-none border border-border px-4 py-2 font-mono text-xs uppercase flex items-center justify-center hover:bg-foreground hover:text-background transition-colors group/link">
+                    <a target="_blank" href={project.links.demo} className="flex-1 lg:flex-none border border-border px-4 py-2 font-mono text-xs uppercase flex items-center justify-center hover:bg-foreground hover:text-background transition-colors group/link">
                       Demo <ArrowUpRight className="ml-2 h-3 w-3 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                     </a>
                   )}
                   {project.links.github && (
-                    <a href={project.links.github} className="flex-1 lg:flex-none border border-border px-4 py-2 font-mono text-xs uppercase flex items-center justify-center hover:bg-foreground hover:text-background transition-colors">
+                    <a target="_blank" href={project.links.github} className="flex-1 lg:flex-none border border-border px-4 py-2 font-mono text-xs uppercase flex items-center justify-center hover:bg-foreground hover:text-background transition-colors">
                       Repo
-                    </a>
-                  )}
-                  {project.links.docs && (
-                    <a href={project.links.docs} className="flex-1 lg:flex-none border border-border px-4 py-2 font-mono text-xs uppercase flex items-center justify-center hover:bg-foreground hover:text-background transition-colors">
-                      Docs
                     </a>
                   )}
                 </div>
@@ -157,7 +152,7 @@ const Projects = () => {
           <Button
             size="lg"
             variant="outline"
-            className="rounded-none border-border font-mono uppercase tracking-widest h-16 px-12 hover:bg-foreground hover:text-background transition-colors border max-w-sm w-full"
+            className="rounded-none border-border font-mono uppercase tracking-widest h-16 px-12 hover:bg-foreground hover:text-background dark:hover:bg-foreground dark:hover:text-background transition-colors border max-w-sm w-full"
             onClick={() => {
               const element = document.getElementById('contact')
               if (element) element.scrollIntoView({ behavior: 'smooth' })

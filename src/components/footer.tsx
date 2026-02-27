@@ -1,14 +1,9 @@
-import React from 'react'
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { socialLinks } from '../data/socials'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
-  const socialLinks = [
-    { icon: Github, href: 'https://github.com/cristianbernal', label: 'GH' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/cristian-bernal', label: 'LN' },
-    { icon: Mail, href: 'mailto:cristianxsa15@gmail.com', label: 'EM' },
-  ]
+
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -20,8 +15,8 @@ const Footer = () => {
 
         {/* Massive Footer Text */}
         <div className="py-24 border-b border-background/20">
-          <h2 className="font-serif text-[15vw] md:text-[180px] leading-none tracking-tighter uppercase mb-8 cursor-pointer hover:opacity-80 transition-opacity ml-[-0.05em]" onClick={scrollToTop}>
-            Bernal<span className="text-primary">.</span>
+          <h2 className="font-serif text-[15vw] md:text-[125px] leading-none tracking-tighter uppercase mb-8 cursor-pointer hover:opacity-80 transition-opacity ml-[-0.05em]" onClick={scrollToTop}>
+            C. Bernal<span className="text-primary">.</span>
           </h2>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <p className="font-mono text-sm uppercase max-w-md text-background/60 leading-relaxed">
@@ -43,7 +38,7 @@ const Footer = () => {
             <div>
               <div className="font-mono text-xs uppercase text-background/40 mb-4">[LOCATION]</div>
               <div className="font-mono text-sm uppercase">Warsaw, Poland / GMT+1</div>
-              <div className="font-mono text-sm uppercase mt-2">Available for relocation / Remote</div>
+              <div className="font-mono text-sm uppercase mt-2">Remote / Hybrid</div>
             </div>
             <div className="mt-12 md:mt-0 font-mono text-xs uppercase text-background/40">
               © {currentYear} ALL RIGHTS RESERVED.
