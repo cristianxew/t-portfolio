@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { socialLinks } from "../data/socials";
 import { Button } from "./ui/button";
 import { ImageWithFallback } from "./figma/ImageWithFallback";

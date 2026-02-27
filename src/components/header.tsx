@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./theme-toggle";
@@ -58,8 +58,8 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-background border-b-2 border-border"
-          : "bg-background border-b-2 border-transparent"
+        ? "bg-background border-b-2 border-border"
+        : "bg-background border-b-2 border-transparent"
         }`}
     >
       <div className="section-container px-0 sm:px-4">
@@ -120,8 +120,8 @@ const Header = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`text-left p-4 text-xs font-mono uppercase tracking-widest border-t-2 border-border hover:bg-foreground hover:text-background transition-colors ${activeSection === item.id
-                      ? "bg-foreground text-background"
-                      : "text-foreground"
+                    ? "bg-foreground text-background"
+                    : "text-foreground"
                     }`}
                 >
                   {item.label}
