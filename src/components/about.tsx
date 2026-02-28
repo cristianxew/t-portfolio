@@ -64,7 +64,7 @@ const About = () => {
           <div className="lg:col-span-7 flex flex-col space-y-12">
             <div className={`font-mono text-base lg:text-lg leading-relaxed space-y-6 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
               <p>
-                Currently I'm working at <a href="https://www.tieto.com/" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-4">Tieto Banktech</a>, where I focus on making the web accessible and our workflows seamless. I build out our WCAG-compliant component libraries, manage our CI/CD pipelines, and automate the heavy lifting of design system documentation."
+                Currently I'm working at <a href="https://www.tieto.com/" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-2 underline-offset-4">Tieto Banktech</a>, where I focus on making the web accessible and our workflows seamless. I build out our WCAG-compliant component libraries, manage our CI/CD pipelines, and automate the heavy lifting of design system documentation.
               </p>
               <p className="text-muted-foreground">
                 I love the challenge of taking complicated technical rules and turning them into clean, friendly interfaces. Spending five years in the financial sector taught me how to write highly disciplined code without losing my creative spark. These days, I use AI to help speed up the busywork, which lets me ship faster without ever cutting corners on the quality of the code.

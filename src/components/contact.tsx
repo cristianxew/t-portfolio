@@ -32,7 +32,10 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" ref={sectionRef} className="py-24 border-b border-border relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-24 border-b border-border relative overflow-hidden bg-muted/20">
+      <div className="absolute left-0 top-0 text-[30vw] font-serif leading-none tracking-tighter opacity-[0.02] dark:opacity-[0.03] select-none pointer-events-none">
+        05
+      </div>
       <div className="section-container relative z-10 w-full">
 
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start ${isVisible ? 'fade-in visible' : 'fade-in'}`}>

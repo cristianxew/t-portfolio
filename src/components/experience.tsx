@@ -50,8 +50,11 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" ref={sectionRef} className="py-24 border-b border-border">
-      <div className="section-container relative">
+    <section id="experience" ref={sectionRef} className="py-24 border-b border-border relative overflow-hidden bg-muted/20">
+      <div className="absolute right-0 top-0 text-[30vw] font-serif leading-none tracking-tighter opacity-[0.02] dark:opacity-[0.03] select-none pointer-events-none">
+        03
+      </div>
+      <div className="section-container relative z-10 w-full">
         <div className={`flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-border pb-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
           <div className="space-y-4 max-w-2xl">
             <h2 className="font-serif text-5xl md:text-7xl font-bold uppercase tracking-tighter">

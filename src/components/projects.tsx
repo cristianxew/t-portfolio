@@ -67,9 +67,12 @@ const Projects = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className="py-24 border-b border-border"
+      className="py-24 border-b border-border relative overflow-hidden"
     >
-      <div className="section-container">
+      <div className="absolute left-0 top-0 text-[30vw] font-serif leading-none tracking-tighter opacity-[0.02] dark:opacity-[0.03] select-none pointer-events-none">
+        04
+      </div>
+      <div className="section-container relative z-10 w-full">
         {/* Header */}
         <div className={`flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-border pb-8 ${isVisible ? 'fade-in visible' : 'fade-in'}`}>
           <div className="space-y-4 max-w-2xl">
