@@ -21,7 +21,7 @@ const Skills = () => {
     {
       id: "01",
       title: 'Languages',
-      skills: ['TypeScript', 'JavaScript', 'Node.js', 'HTML5', 'CSS3', 'SASS']
+      skills: ['TypeScript', 'JavaScript', 'Node.js', 'Python', 'HTML5', 'CSS3', 'SASS']
     },
     {
       id: "02",
@@ -31,7 +31,7 @@ const Skills = () => {
     {
       id: "03",
       title: 'Ecosystem',
-      skills: ['Git', 'GitHub Actions', 'Docker', 'Vite', 'vitest', 'cypress', 'Docusaurus', 'GraphQL']
+      skills: ['Git', 'GitHub Actions', 'Docker', 'Vite', 'vitest', 'cypress', 'Docusaurus', 'GraphQL', 'PostgreSQL', 'MongoDB',]
     },
     {
       id: "04",
@@ -41,15 +41,18 @@ const Skills = () => {
   ]
 
   const expertiseAreas = [
-    'WCAG Accessibility (AA/AAA)',
-    'Responsive Web Design (RWD)',
-    'Enterprise Component Libraries',
-    'Unit Testing / Integration Testing',
-    'API Documentation',
+    'Fullstack Development',
+    'Design Systems',
+    'Responsive Web Design',
+    'State Management',
+    'UI/UX Design principles',
+    'Testing / Debugging',
     'Performance Optimization',
     'CI/CD',
-    'Pixel Perfect UI',
     'RESTful APIs',
+    'Graph QL',
+    'SEO & Web Vitals',
+    'Spec-Driven Development'
   ]
 
   return (
@@ -96,7 +99,7 @@ const Skills = () => {
           <div className="lg:col-span-4 max-w-sm">
             <h3 className="font-serif text-3xl mb-4 uppercase">Expertise</h3>
             <p className="text-muted-foreground text-sm uppercase font-mono tracking-widest leading-relaxed mb-8">
-              Specialized domains of knowledge gathered over half a decade in fintech frontend engineering.
+              Even though I specialize in frontend development, I have a strong understanding and experience in backend technologies and fullstack development.
             </p>
           </div>
 
